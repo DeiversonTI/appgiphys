@@ -1,19 +1,13 @@
 <template>
   <div id="app">
-    <FormSearchGiphy />
+    <div class="ui top fixed menu">
+      <router-link class="item" to="/">Home</router-link> 
+      <router-link class="item" to="/search">Search Giphys</router-link> 
+      <router-link class="item" to="/savedgiphys">Giphys Saved</router-link>
+    </div>
+      <router-view/>
   </div>
 </template>
-
-<script>
-import FormSearchGiphy from "./components/PageSearchGiphy";
-
-export default {
-  name: "App",
-  components: {
-    FormSearchGiphy,
-  },
-};
-</script>
 
 <style>
 #app {
@@ -21,12 +15,16 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: rgb(223, 213, 213);
+  min-height: 100vh;
 
-  margin: 0;
-  padding: 0;
+  background: #2c3e50;
+}
 
-  width: 100vw;
-  height: 100vh;
+.menu{
+  display: flex;
+  justify-content: center;
+  height: 60px;
+  padding: 20px;
 }
 </style>

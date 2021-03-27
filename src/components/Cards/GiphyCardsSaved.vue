@@ -7,19 +7,24 @@
         </div>
         <div class="content">
           <div class="header" v-html="title || 'Gif'"></div>
-          <!-- <div class="description" v-html="description"></div> -->
           <br />
           <div class="ui labeled button" tabindex="0">
             <div
-              class="ui button"
-              :class="{ red: saved }"
+              class="ui red animated button"
               tabindex="0"
-              @click="saveGiphy()"
+              @click="deleteGiphy()"
             >
-              <i class="heart icon"></i>
-              Like
+              <div class="visible content">
+                <i class="thumbs up icon"></i>
+                Like
+              </div>
+              <div class="hidden content">
+                <i class="thumbs down icon"></i>
+                Deslike
+              </div>
             </div>
           </div>
+            <FormEditCard />
         </div>
         <div class="extra content">
           <span class="center floated">
@@ -33,41 +38,26 @@
 
 <script>
 import moment from "moment";
+import FormEditCard from "../FormEditCard/FormEditCard.vue";
 
 export default {
   name: "GiphyCard",
+  components: {
+    FormEditCard,
+  },
   props: ["urlGiphy", "title", "import_date", "id"],
   data() {
     return {
-      saved: false,
+      clicked: false,
     };
   },
   methods: {
     moment: function(data) {
       return moment(data).format("DD/MM/YYYY");
     },
-    saveGiphy: function() {
-      if (this.saved) {
-        this.saved = false;
-				this.removeOnStorage();
-      } else {
-        this.saved = true;
-        this.saveInStorage();
-      }
+    deleteGiphy: function() {
+      localStorage.removeItem(`props${this.id}`);
     },
-    saveInStorage: function() {
-      let props = {
-        url: this.urlGiphy,
-        title: this.title,
-        import_data: this.import_date,
-        id: this.id,
-      };
-
-      localStorage.setItem(`props${this.id}`, JSON.stringify(props));
-    },
-		removeOnStorage: function(){
-			localStorage.removeItem(`props${this.id}`);
-		}
   },
 };
 </script>
