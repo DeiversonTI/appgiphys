@@ -41,7 +41,7 @@ export default {
   data() {
     return {
       api_key: "KuOjfeKF3VQCVK9PIsI33rzivmUlKkOF",
-      valueSearch: "" || localStorage.getItem('valueSearched'),
+      valueSearch: "",
       url: "https://api.giphy.com/v1/gifs/search?",
 
       items_response: {},

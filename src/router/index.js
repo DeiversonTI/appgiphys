@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 import PageTrendigs from '../components/Trendings/PageTrendigs.vue'
-import PageSearchGiphy from '../components/Search/PageSearchGiphy.vue'
+import PageSearchGiphy from '../components/SearchGiphys/PageSearchGiphy.vue'
 import PageSavedGiphys from '../components/SavedGiphys/PageSavedGiphys.vue'
 
 Vue.use(VueRouter)

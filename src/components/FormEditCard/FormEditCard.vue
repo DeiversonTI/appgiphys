@@ -1,46 +1,60 @@
 <template>
   <main>
-    <button class="ui button" @click="openModal()">
+    <button class="ui button" @click="showForm()">
       <i class="edit icon"></i>
       Edit
     </button>
-    <form class="ui form modal">
-      <h4 class="ui dividing header">Shipping Information</h4>
+    <form class="ui form" v-if="edit == true">
+      <!-- <h4 class="ui dividing header">Edit card</h4> -->
+      <br />
+      <hr />
       <div class="field">
-        <label>Name</label>
-        <div class="two fields">
-          <div class="field">
-            <input
-              type="text"
-              name="shipping[first-name]"
-              placeholder="First Name"
-            />
-          </div>
-          <div class="field">
-            <input
-              type="text"
-              name="shipping[last-name]"
-              placeholder="Last Name"
-            />
-          </div>
+        <label>ID</label>
+        <div class="field">
+          <input
+            type="text"
+            name="giphyId"
+            placeholder=""
+            v-model="idGiphy"
+            readonly
+          />
         </div>
       </div>
       <div class="field">
-        <label>Billing Address</label>
-        <div class="fields">
-          <div class="twelve wide field">
-            <input
-              type="text"
-              name="shipping[address]"
-              placeholder="Street Address"
-            />
-          </div>
-          <div class="four wide field">
-            <input type="text" name="shipping[address-2]" placeholder="Apt #" />
-          </div>
+        <label>Title</label>
+        <div class="field">
+          <input
+            type="text"
+            name="giphyTitle"
+            placeholder="Insira um titúlo"
+            v-model="titleGiphy"
+          />
         </div>
       </div>
-      <div class="ui button" tabindex="0">Submit Order</div>
+      <div class="field">
+        <label>Data</label>
+        <div class="field">
+          <input
+            type="date"
+            name="giphyDate"
+            placeholder="Insira uma Data"
+            v-model="dateGiphy"
+          />
+        </div>
+      </div>
+      <div class="field">
+        <label>URL</label>
+        <div class="field">
+          <input
+            type="text"
+            name="giphyUrl"
+            placeholder=""
+            v-model="urlGiphy"
+            readonly
+          />
+        </div>
+      </div>
+      <div class="ui button" tabindex="0" @click="saveChanges()">Confimar</div>
     </form>
   </main>
 </template>
@@ -50,21 +64,36 @@ import moment from "moment";
 
 export default {
   name: "GiphyCard",
-  props: ["urlGiphy", "title", "import_date", "id"],
+  props: ["giphyUrl", "giphyTitle", "giphyDate", "giphyId"],
   data() {
     return {
-      giphyUrl: this.urlGiphy,
-      giphyTitle: this.title,
-      giphyYate: this.import_date,
+      urlGiphy: this.giphyUrl,
+      titleGiphy: this.giphyTitle,
+      dateGiphy: this.giphyDate,
+      idGiphy: this.giphyId,
+      edit: false,
     };
   },
   methods: {
     moment: function(data) {
-      return moment(data).format("DD/MM/YYYY");
+      return moment(data).format("YYYY-MM-DD");
     },
-    openModal: function(){
-      
-    }
+    showForm: function() {
+      if (this.edit) {
+        this.edit = false;
+      } else {
+        this.edit = true;
+      }
+    },
+    saveChanges: function() {
+      localStorage.setItem(`props${this.idGiphy}`, JSON.stringify({
+        id: this.idGiphy, 
+        import_data: moment(this.dateGiphy), 
+        title: this.titleGiphy, 
+        url: this.urlGiphy, 
+      }));
+      this.edit = false;
+    },
   },
 };
 </script>

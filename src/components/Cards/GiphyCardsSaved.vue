@@ -20,15 +20,22 @@
               </div>
               <div class="hidden content">
                 <i class="thumbs down icon"></i>
-                Deslike
+                Dislike
               </div>
             </div>
           </div>
-            <FormEditCard />
+          <br>
+          <br>
+          <FormEditCard
+            :giphyUrl="urlGiphy"
+            :giphyTitle="title"
+            :giphyDate="import_date"
+            :giphyId="id"
+          />
         </div>
         <div class="extra content">
-          <span class="center floated">
-            Postado em <span v-html="moment(import_date)"></span>
+          <span class="left floated">
+            última atualização: <span v-html="moment(import_date)"></span>
           </span>
         </div>
       </div>
@@ -62,4 +69,5 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+</style>

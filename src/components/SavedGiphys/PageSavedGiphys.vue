@@ -9,7 +9,7 @@
       :key="giphy.id"
       :urlGiphy="giphy.url"
       :title="giphy.title"
-      :import_date="giphy.import_datetime"
+      :import_date="giphy.import_data"
       :id="giphy.id"
     />
   </main>
@@ -48,7 +48,7 @@ export default {
       });
       this.giphysSaved = valuesOnStorage;
     },
-  },
+  }
 };
 </script>
 
