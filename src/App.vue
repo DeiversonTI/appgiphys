@@ -1,7 +1,6 @@
 <template>
   <div id="app">
     <div class="ui top fixed menu">
-      <router-link class="item" to="/">Home</router-link> 
       <router-link class="item" to="/search">Search Giphys</router-link> 
       <router-link class="item" to="/savedgiphys">Giphys Saved</router-link>
     </div>
