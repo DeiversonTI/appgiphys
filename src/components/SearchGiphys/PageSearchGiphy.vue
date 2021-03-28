@@ -50,7 +50,7 @@ export default {
   methods: {
     async searchGiphys() {
       let urlToFetch = this.url.concat(
-        `api_key=${this.api_key}&limit=12&q=${this.valueSearch}&lang=pt`
+        `api_key=${this.api_key}&limit=30&q=${this.valueSearch}&lang=pt`
       );
 
       await fetch(urlToFetch)

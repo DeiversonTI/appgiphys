@@ -9,10 +9,9 @@
       <br />
       <hr />
       <div class="field">
-        <label>ID</label>
         <div class="field">
           <input
-            type="text"
+            type="hidden"
             name="giphyId"
             placeholder=""
             v-model="idGiphy"

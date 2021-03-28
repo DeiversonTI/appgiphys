@@ -26,4 +26,9 @@
   height: 60px;
   padding: 20px;
 }
+
+.item{
+  font-size: large;
+}
+
 </style>
