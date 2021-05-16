@@ -1,12 +1,23 @@
 <template>
   <div id="app">
     <nav class="topbar">
-      <a href="/" class="topbar-title">Giphys</a>
+      <router-link to="/" class="topbar-title">Giphys</router-link>
       <ul>
-        <li class="topbar-items"><a href="/pesquisar">Pesquisar</a></li>
-        <li class="topbar-items"><a href="/salvos">Salvos</a></li>
+        <li class="topbar-items">
+          <router-link class="links" to="/">Início</router-link>
+        </li>
+        <!-- <li class="topbar-items">
+          <router-link class="links" to="/trendings">Trendings</router-link>
+        </li> -->
+        <li class="topbar-items">
+          <router-link class="links" to="/pesquisar">Pesquisar</router-link>
+        </li>
+        <li class="topbar-items">
+          <router-link class="links" to="/salvos">Salvos</router-link>
+        </li>
       </ul>
     </nav>
+		<router-view class="view"></router-view>
   </div>
 </template>
 
@@ -16,9 +27,10 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
+  color: white;
 
-  height: 100vh;
-  width: 100vw;
+  min-height: 100vh;
+  max-width: 100vw;
 
   background: #383a59;
 }
@@ -26,7 +38,7 @@
 nav.topbar {
   background: #282a36;
   height: 50px;
-  padding: 5px;
+  padding: 15px;
   display: flex;
   align-items: center;
   -webkit-box-shadow: 0 5px 10px 0 rgb(0 0 0 / 15%);
@@ -38,7 +50,7 @@ nav.topbar {
   font-family: Abril Text;
   font-weight: 700;
   color: #f2f2f2;
-  font-size: 24px;
+  font-size: 42px;
   cursor: pointer;
   -webkit-transition: none;
   transition: none;
@@ -67,11 +79,15 @@ ul {
   padding-inline-start: 40px;
 }
 
-nav ul li a {
+nav ul li .links {
   color: #f2f2f2;
   font-size: 20px;
   font-weight: 400;
   border-bottom: 2px solid transparent;
   margin-left: 20px;
+}
+
+.links:hover {
+  border-bottom: 2px solid white;
 }
 </style>
