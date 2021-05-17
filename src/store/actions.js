@@ -6,8 +6,7 @@ export default {
     async getTrending() {
         try {
             const giphysList = await GiphyApi.getTrending();
-
-            console.log(giphysList.data);
+            return giphysList.data.data;
         } catch (err){
             console.error(err);
         }
