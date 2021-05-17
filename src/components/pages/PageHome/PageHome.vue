@@ -2,28 +2,34 @@
   <main id="home-page">
     <h1>Bem vindo aos trendings</h1>
     <section id="cards">
-      <CardGiphy />
+      <CardGiphy
+        v-for="(giphy, index) in list"
+        :key="index"
+        :url="giphy.images.downsized.url"
+        :title="giphy.title"
+        :import_date="giphy.import_datetime"
+        :id="giphy.id"
+      />
     </section>
   </main>
 </template>
 
 <script>
 import CardGiphy from "@/components/Cards/CardGiphy";
-import actions from '@/store/actions';
-import state from "@/store/state";
+import { state, actions } from '@/store'
 
 export default {
   components: {
     CardGiphy,
   },
-	data(){
-		return {
-			list: state.list,
-		}
-	},
-	render() {
-		return state.list.push(actions.getTrending());
-	},
+  data() {
+    return {
+      list: state.list,
+    };
+  },
+  created(){
+    actions.getTrending()
+  }
 };
 </script>
 
@@ -35,9 +41,9 @@ export default {
 }
 
 #cards {
-	align-self: center;
+  align-self: center;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-	grid-gap: 25px;
+  grid-gap: 25px;
 }
 </style>

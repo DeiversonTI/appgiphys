@@ -1,12 +1,14 @@
 import GiphyApi from '@/services/giphysapi'
 
-//import state from '@/store/state'
+import { state } from '@/store/'
 
 export default {
     async getTrending() {
         try {
             const giphysList = await GiphyApi.getTrending();
-            return giphysList.data.data;
+            let list = giphysList.data.data
+            console.log(list);
+            state.list.push(...list);
         } catch (err){
             console.error(err);
         }

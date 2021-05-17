@@ -1,7 +1,11 @@
 <template>
   <section>
     <div class="card">
-
+        <img :src="url" :alt="title">
+        <!-- <h6>{{ title }}</h6>
+        <h6>{{ url }}</h6>
+        <h6>{{ import_date }}</h6>
+        <h6>{{ id }}</h6> -->
     </div>
   </section>
 </template>
@@ -15,13 +19,13 @@ export default {
 
 <style scoped>
 section {
-  color: white;
+  color: black;
 }
 
 section .card {
   width: 200px;
   height: 200px;
-  background: white;
   border-radius: 20px;
+  background: white;
 }
 </style>
