@@ -9,7 +9,6 @@
 import actions from '../../../store/actions';
 
 export default ({
-  el: 'search-page',
   methods: {
     teste(){
       actions.getTrending();
