@@ -45,5 +45,6 @@ export default {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 25px;
+  margin-bottom: 50px;
 }
 </style>

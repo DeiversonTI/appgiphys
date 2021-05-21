@@ -1,6 +1,6 @@
 import Vue from 'vue';
 
-const LIMIT = 25;
+const LIMIT = 12;
 const OFFSET = 0;
 
 export default Vue.observable({
