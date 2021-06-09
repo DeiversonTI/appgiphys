@@ -1,7 +1,14 @@
 <template>
   <div id="app">
     <nav class="topbar">
-      <router-link to="/" class="topbar-title">Giphys</router-link>
+      <div id="divLogoInp">
+        <router-link to="/" class="topbar-title">Giphys</router-link>
+        <input
+          type="text"
+          id="inputPesquisa"
+          placeholder="Digite aqui para pesquisar"
+        />
+      </div>
       <ul>
         <li class="topbar-items">
           <router-link class="links" to="/">Início</router-link>
@@ -11,7 +18,7 @@
         </li>
       </ul>
     </nav>
-		<router-view class="view"></router-view>
+    <router-view class="view"></router-view>
   </div>
 </template>
 
@@ -85,14 +92,29 @@ nav ul li .links {
   border-bottom: 2px solid white;
 }
 
+.topbar #divLogoInp {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 600px;
+}
+
+#inputPesquisa {
+  outline: none;
+  font-size: 20px;
+  width: 70%;
+  border-radius: 20px;
+  padding: 5px;
+}
+
 ::-webkit-scrollbar {
   width: 1em;
 }
- 
+
 ::-webkit-scrollbar-track {
   box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
 }
- 
+
 ::-webkit-scrollbar-thumb {
   background-color: #282a36;
   outline: none;

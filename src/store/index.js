@@ -1,7 +1,12 @@
-import state from './state';
-import actions from './actions';
+import Vue from 'vue';
+import Vuex from 'vuex';
 
-export {
-    state,
-    actions
-};
+import trendings from './modules/trendings'
+
+Vue.use(Vuex);
+
+export default new Vuex.Store({
+	modules: {
+        trendings
+    }
+});

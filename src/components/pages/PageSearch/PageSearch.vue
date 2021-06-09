@@ -6,13 +6,5 @@
 </template>
 
 <script>
-import actions from '../../../store/actions';
 
-export default ({
-  methods: {
-    teste(){
-      actions.getTrending();
-    }
-  }
-})
 </script>
