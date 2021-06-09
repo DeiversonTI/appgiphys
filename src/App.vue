@@ -6,12 +6,6 @@
         <li class="topbar-items">
           <router-link class="links" to="/">Início</router-link>
         </li>
-        <!-- <li class="topbar-items">
-          <router-link class="links" to="/trendings">Trendings</router-link>
-        </li> -->
-        <li class="topbar-items">
-          <router-link class="links" to="/pesquisar">Pesquisar</router-link>
-        </li>
         <li class="topbar-items">
           <router-link class="links" to="/salvos">Salvos</router-link>
         </li>
