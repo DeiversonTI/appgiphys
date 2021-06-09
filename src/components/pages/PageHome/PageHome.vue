@@ -16,23 +16,23 @@
 
 <script>
 import CardGiphy from "@/components/Cards/CardGiphy";
-import { mapActions } from 'vuex';
+import { mapState, mapActions } from 'vuex';
 
 export default {
   components: {
     CardGiphy,
   },
-  computed: {
-    list() {
-      return this.$store.state.trendings.list
-    }
+  computed: mapState({
+    list: state => state.list,
+  }),
+  methods: {
+    ...mapActions([
+      'getTrending'
+    ])
   },
-  methods: mapActions('trendings' [
-    'getList'
-  ]),
-  created(){
-    this.$store.dispatch('trendings/getList')
-  }
+  created() {
+    this.getTrending()
+  },
 };
 </script>
 
