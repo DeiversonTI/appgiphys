@@ -1,18 +1,6 @@
 <template>
   <main id="search-page">
     <h1>Bem vindo a página de Pesquisa</h1>
-    <button @click="teste()">Pesquisar</button>
+    <button>Pesquisar</button>
   </main>
 </template>
-
-<script>
-import actions from '../../../store/actions';
-
-export default ({
-  methods: {
-    teste(){
-      actions.getTrending();
-    }
-  }
-})
-</script>
