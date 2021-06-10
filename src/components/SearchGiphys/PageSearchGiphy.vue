@@ -57,9 +57,14 @@ export default {
       await this.$store.dispatch("getGiphys", this.valueSearch);
       $state.loaded();
     },
+
   },
   watch: {
-    
+    valueSearch: function (newValue, oldValue){
+      if (newValue != oldValue){
+        this.$store.commit('resetList');
+      }
+    }
   }
 };
 </script>

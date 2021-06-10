@@ -10,7 +10,7 @@ export default new Vuex.Store({
 		list: [],
         tmpList: [],
 
-        limit: 15,
+        limit: 9,
         offset: 0,
         key: 'KuOjfeKF3VQCVK9PIsI33rzivmUlKkOF',
 	},
@@ -21,6 +21,9 @@ export default new Vuex.Store({
 		setList(state, payload) {
 			state.list.push(...payload);
 		},
+        resetList(state){
+            state.list = [];
+        }
 	},
 	actions: {
 		async getGiphys({ commit }, payload) {
