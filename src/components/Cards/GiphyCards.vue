@@ -14,7 +14,7 @@
               class="ui button"
               :class="{ red: saved }"
               tabindex="0"
-              @click="saveGiphy()"
+              @click="giphySaved()"
             >
               <i class="heart icon"></i>
               Like
@@ -33,6 +33,7 @@
 
 <script>
 import moment from "moment";
+import { mapActions } from 'vuex';
 
 export default {
   name: "GiphyCard",
@@ -43,31 +44,31 @@ export default {
     };
   },
   methods: {
-    moment: function(data) {
-      return moment(data).format("DD/MM/YYYY");
-    },
-    saveGiphy: function() {
+    ...mapActions(['saveGiphy', 'removeGiphy']),
+    async giphySaved(){
       if (this.saved) {
         this.saved = false;
-				this.removeOnStorage();
+				this.removeGiphy();
       } else {
         this.saved = true;
-        this.saveInStorage();
+        this.addGiphy();
       }
     },
-    saveInStorage: function() {
+    async addGiphy(){
       let props = {
         url: this.urlGiphy,
         title: this.title,
         import_data: this.import_date,
         id: this.id,
       };
-
-      localStorage.setItem(`props${this.id}`, JSON.stringify(props));
+      await this.$store.dispatch('saveGiphy', props);
     },
-		removeOnStorage: function(){
-			localStorage.removeItem(`props${this.id}`);
-		}
+    async removeGiphy(){
+      await this.$store.dispatch('removeGiphy');
+    },
+    moment: function(data) {
+      return moment(data).format("DD/MM/YYYY");
+    },
   },
 };
 </script>
