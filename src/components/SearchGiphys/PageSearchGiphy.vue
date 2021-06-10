@@ -13,11 +13,7 @@
       </div>
     </header>
 
-    <main
-      class="ui centered grid"
-      id="viewGiphys"
-      v-if="list.length > 0"
-    >
+    <main class="ui centered grid" id="viewGiphys" v-if="list.length > 0">
       <GiphyCard
         v-for="giphy in list"
         :key="giphy.id"
@@ -32,29 +28,29 @@
 
 <script>
 import GiphyCard from "../Cards/GiphyCards";
-import { mapActions } from 'vuex'
+import { mapActions } from "vuex";
 
 export default {
   name: "FormSearchGiphy",
   components: {
     GiphyCard,
   },
-  data(){
+  data() {
     return {
-      valueSearch: '',
-    }
+      valueSearch: "",
+    };
   },
   computed: {
-    list(){
-      return this.$store.state.list
-    }
+    list() {
+      return this.$store.state.list;
+    },
   },
   methods: {
-    ...mapActions(['getGiphys']),
+    ...mapActions(["getGiphys"]),
     searchGiphys() {
-      this.$store.dispatch('getGiphys', this.valueSearch)
-    }
-  }
+      this.$store.dispatch("getGiphys", this.valueSearch);
+    },
+  },
 };
 </script>
 
@@ -62,10 +58,10 @@ export default {
 <style scoped>
 section.main {
   /* margin-top: 60px; */
-  width: 100vw; 
+  width: 100vw;
 }
 
-.input{
+.input {
   margin-top: 60px;
 }
 
