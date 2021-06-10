@@ -22,6 +22,7 @@
         :import_date="giphy.import_datetime"
         :id="giphy.id"
       />
+       <infinite-loading @infinite="infiniteHandler"></infinite-loading>
     </main>
   </section>
 </template>
@@ -29,11 +30,13 @@
 <script>
 import GiphyCard from "../Cards/GiphyCards";
 import { mapActions } from "vuex";
+import InfiniteLoading from 'vue-infinite-loading';
 
 export default {
   name: "FormSearchGiphy",
   components: {
     GiphyCard,
+    InfiniteLoading,
   },
   data() {
     return {
@@ -47,10 +50,17 @@ export default {
   },
   methods: {
     ...mapActions(["getGiphys"]),
-    searchGiphys() {
-      this.$store.dispatch("getGiphys", this.valueSearch);
+    async searchGiphys() {
+      await this.$store.dispatch("getGiphys", this.valueSearch);
+    },
+    async infiniteHandler($state){
+      await this.$store.dispatch("getGiphys", this.valueSearch);
+      $state.loaded();
     },
   },
+  watch: {
+    
+  }
 };
 </script>
 

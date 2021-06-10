@@ -19,7 +19,7 @@ export default new Vuex.Store({
             state.offset += state.limit
         },
 		setList(state, payload) {
-			state.list = payload;
+			state.list.push(...payload);
 		},
 	},
 	actions: {
@@ -27,6 +27,7 @@ export default new Vuex.Store({
             const giphysList = await GiphyApi.getGiphys({ limit: this.state.limit, offset: this.state.offset, value: payload })
             let list = giphysList.data.data;
             commit('setList', list);
+            commit('updateOffSet');
 		},
 	},
 });
