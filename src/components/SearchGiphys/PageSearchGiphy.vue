@@ -15,22 +15,22 @@
 
     <main class="ui centered grid" id="viewGiphys" v-if="list.length > 0">
       <GiphyCard
-        v-for="giphy in list"
-        :key="giphy.id"
+        v-for="(giphy, index) in list"
+        :key="giphy.id+index"
         :urlGiphy="giphy.images.downsized.url"
         :title="giphy.title"
         :import_date="giphy.import_datetime"
         :id="giphy.id"
       />
-       <infinite-loading @infinite="infiniteHandler"></infinite-loading>
+      <infinite-loading @infinite="infiniteHandler"></infinite-loading>
     </main>
   </section>
 </template>
 
 <script>
 import GiphyCard from "../Cards/GiphyCards";
-import { mapActions } from "vuex";
-import InfiniteLoading from 'vue-infinite-loading';
+import { mapActions, mapState } from "vuex";
+import InfiniteLoading from "vue-infinite-loading";
 
 export default {
   name: "FormSearchGiphy",
@@ -44,28 +44,27 @@ export default {
     };
   },
   computed: {
-    list() {
-      return this.$store.state.list;
-    },
+    ...mapState({
+      list: state => state.searcheds.list,
+    }),
   },
   methods: {
     ...mapActions(["getGiphys"]),
     async searchGiphys() {
       await this.$store.dispatch("getGiphys", this.valueSearch);
     },
-    async infiniteHandler($state){
+    async infiniteHandler($state) {
       await this.$store.dispatch("getGiphys", this.valueSearch);
       $state.loaded();
     },
-
   },
   watch: {
-    valueSearch: function (newValue, oldValue){
-      if (newValue != oldValue){
-        this.$store.commit('resetList');
+    valueSearch: function (newValue, oldValue) {
+      if (newValue != oldValue) {
+        this.$store.commit("resetList");
       }
-    }
-  }
+    },
+  },
 };
 </script>
 
