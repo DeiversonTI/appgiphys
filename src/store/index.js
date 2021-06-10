@@ -1,6 +1,8 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 
+import GiphyApi from '@/services/giphyapi'
+
 Vue.use(Vuex);
 
 export default new Vuex.Store({
@@ -22,17 +24,9 @@ export default new Vuex.Store({
 	},
 	actions: {
 		async getGiphys({ commit }, payload) {
-            let url = "https://api.giphy.com/v1/gifs/search?";
-			let urlToFetch = url.concat(
-				`api_key=${this.state.key}&limit=${this.state.limit}&offset=${this.state.offset}&q=${payload}&lang=pt`
-			);
-
-			await fetch(urlToFetch)
-				.then((response) => response.json())
-				.then((content) => {
-					commit('setList', content.data);
-				})
-				.catch((err) => console.error(err));
+            const giphysList = await GiphyApi.getGiphys({ limit: this.state.limit, offset: this.state.offset, value: payload })
+            let list = giphysList.data.data;
+            commit('setList', list);
 		},
 	},
 });
