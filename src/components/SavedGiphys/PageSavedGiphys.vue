@@ -2,11 +2,10 @@
   <main
     class="ui centered grid"
     id="viewGiphysSaved"
-    @mousemove="getItemsInStorage()"
   >
     <GiphyCardsSaved
-      v-for="giphy in giphysSaved"
-      :key="giphy.id"
+      v-for="(giphy, index) in list"
+      :key="giphy.id+index"
       :urlGiphy="giphy.url"
       :title="giphy.title"
       :import_date="giphy.import_data"
@@ -17,37 +16,20 @@
 
 <script>
 import GiphyCardsSaved from "../Cards/GiphyCardsSaved.vue";
+import { mapState } from "vuex";
 
 export default {
   name: "SavedGiphys",
   components: {
     GiphyCardsSaved,
   },
-  data() {
-    return {
-      giphysSaved: new Array(),
-    };
+  computed: {
+    ...mapState({
+      list: (state) => state.saveds.list,
+    }),
   },
-  methods: {
-    getItemsInStorage: function() {
-      let saveds = [];
-      let valuesOnStorage = [];
-
-      for (let i = 0; i < localStorage.length; i++) {
-        saveds.push(localStorage.key(i));
-      }
-
-      saveds.forEach((element, index) => {
-        if (element.substr(0, 5) != "props") {
-          saveds.splice(index, 1);
-        }
-      });
-
-      saveds.forEach((element) => {
-        valuesOnStorage.push(JSON.parse(localStorage.getItem(element)));
-      });
-      this.giphysSaved = valuesOnStorage;
-    },
+  created(){
+    console.log(this.list);
   }
 };
 </script>

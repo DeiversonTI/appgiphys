@@ -60,18 +60,15 @@
 
 <script>
 import moment from "moment";
+import { mapState } from 'vuex';
 
 export default {
   name: "GiphyCard",
   props: ["giphyUrl", "giphyTitle", "giphyDate", "giphyId"],
-  data() {
-    return {
-      urlGiphy: this.giphyUrl,
-      titleGiphy: this.giphyTitle,
-      dateGiphy: this.giphyDate,
-      idGiphy: this.giphyId,
-      edit: false,
-    };
+  computed: {
+    ...mapState({
+      id: state => state.saveds.list
+    }),
   },
   methods: {
     moment: function(data) {

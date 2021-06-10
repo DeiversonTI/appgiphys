@@ -5,7 +5,7 @@
         <input
           id="btnSearch"
           type="text"
-          v-model="valueSearch"
+          v-model="valueToSearch"
           @blur="searchGiphys()"
           @keypress.enter="searchGiphys()"
         />
@@ -16,7 +16,7 @@
     <main class="ui centered grid" id="viewGiphys" v-if="list.length > 0">
       <GiphyCard
         v-for="(giphy, index) in list"
-        :key="giphy.id+index"
+        :key="giphy.id + index"
         :urlGiphy="giphy.images.downsized.url"
         :title="giphy.title"
         :import_date="giphy.import_datetime"
@@ -38,33 +38,36 @@ export default {
     GiphyCard,
     InfiniteLoading,
   },
-  data() {
-    return {
-      valueSearch: "",
-    };
-  },
   computed: {
     ...mapState({
-      list: state => state.searcheds.list,
+      list: (state) => state.searcheds.list,
     }),
+    valueToSearch: {
+      get() {
+        return this.$store.state.searcheds.valueToSearch;
+      },
+      set(value) {
+        this.$store.commit("setValueToSearch", value);
+      },
+    },
   },
   methods: {
     ...mapActions(["getGiphys"]),
     async searchGiphys() {
-      await this.$store.dispatch("getGiphys", this.valueSearch);
+      await this.$store.dispatch("getGiphys");
     },
     async infiniteHandler($state) {
-      await this.$store.dispatch("getGiphys", this.valueSearch);
+      await this.$store.dispatch("getGiphys");
       $state.loaded();
     },
   },
   watch: {
-    valueSearch: function (newValue, oldValue) {
-      if (newValue != oldValue) {
-        this.$store.commit("resetList");
+    valueToSearch(newValue, oldValue){
+      if(newValue != oldValue){
+        this.$store.commit('resetList');
       }
-    },
-  },
+    }
+  }
 };
 </script>
 

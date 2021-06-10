@@ -58,13 +58,13 @@ export default {
       let props = {
         url: this.urlGiphy,
         title: this.title,
-        import_data: this.import_date,
+        import_date: this.import_date,
         id: this.id,
       };
       await this.$store.dispatch('saveGiphy', props);
     },
     async removeGiphy(){
-      await this.$store.dispatch('removeGiphy');
+      await this.$store.dispatch('removeGiphy', this.id);
     },
     moment: function(data) {
       return moment(data).format("DD/MM/YYYY");
