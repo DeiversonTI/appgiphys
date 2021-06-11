@@ -47,23 +47,21 @@
 import moment from "moment";
 import FormEditCard from "../FormEditCard/FormEditCard.vue";
 
+//import { mapActions } from 'vuex';
+
 export default {
   name: "GiphyCard",
   components: {
     FormEditCard,
   },
   props: ["urlGiphy", "title", "import_date", "id"],
-  data() {
-    return {
-      clicked: false,
-    };
-  },
+
   methods: {
     moment: function(data) {
       return moment(data).format("DD/MM/YYYY");
     },
     deleteGiphy: function() {
-      localStorage.removeItem(`props${this.id}`);
+      this.$store.dispatch('removeGiphy', this.id);
     },
   },
 };

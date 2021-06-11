@@ -7,7 +7,7 @@ export default {
 			state.list.push(payload);
 		},
 		removeGiphy(state, payload) {
-			state.list.splice(payload, 1);
+			state.list = payload;
 		},
 	},
 	actions: {
@@ -21,8 +21,10 @@ export default {
 			commit('insertGiphy', giphy);
 		},
 		removeGiphy({ state, commit }, payload) {
-			let index = state.list.indexOf(payload.id);
-			commit('removeGiphy', index);
+			let newList = state.list.filter((element) => {
+				return element.id != payload;
+			});
+			commit('removeGiphy', newList);
 		},
 		editGiphy({ commit }, payload){
 			console.log('teste');
