@@ -55,7 +55,6 @@ export default {
     FormEditCard,
   },
   props: ["urlGiphy", "title", "import_date", "id"],
-
   methods: {
     moment: function(data) {
       return moment(data).format("DD/MM/YYYY");

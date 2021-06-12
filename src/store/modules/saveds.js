@@ -9,6 +9,9 @@ export default {
 		removeGiphy(state, payload) {
 			state.list = payload;
 		},
+		editGiphy(state, payload) {
+			state.list = payload;
+		},
 	},
 	actions: {
 		saveGiphy({ commit }, payload) {
@@ -26,10 +29,17 @@ export default {
 			});
 			commit('removeGiphy', newList);
 		},
-		editGiphy({ commit }, payload){
-			console.log('teste');
-			console.log(payload);
-			commit('');
-		}
+		editGiphy({ state, commit }, payload) {
+			let newList = [];
+			state.list.forEach((el) => {
+				if (payload.id == el.id){
+					newList.push(payload);
+				} else {
+					newList.push(el);
+				}
+			})
+			console.log(newList);
+			commit('editGiphy', newList);	
+		},
 	},
 };

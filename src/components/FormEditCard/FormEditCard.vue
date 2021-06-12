@@ -53,41 +53,54 @@
           />
         </div>
       </div>
-      <div class="ui button" tabindex="0" @click="saveChanges()">Confimar</div>
+      <div class="ui button" tabindex="0" @click="saveChanges()">
+        Confimar
+      </div>
     </form>
   </main>
 </template>
 
 <script>
 import moment from "moment";
-import { mapState } from 'vuex';
+import { mapState } from "vuex";
 
 export default {
   name: "GiphyCard",
   props: ["giphyUrl", "giphyTitle", "giphyDate", "giphyId"],
+  data() {
+    return {
+      edit: false,
+      urlGiphy: this.giphyUrl,
+      titleGiphy: this.giphyTitle,
+      dateGiphy: this.giphyDate,
+      idGiphy: this.giphyId,
+    };
+  },
   computed: {
     ...mapState({
-      id: state => state.saveds.list
+      list: (state) => state.saveds.list,
     }),
   },
   methods: {
-    moment: function(data) {
+    moment: function (data) {
       return moment(data).format("YYYY-MM-DD");
     },
-    showForm: function() {
+    showForm: function () {
       if (this.edit) {
         this.edit = false;
       } else {
         this.edit = true;
       }
     },
-    saveChanges: function() {
-      localStorage.setItem(`props${this.idGiphy}`, JSON.stringify({
-        id: this.idGiphy, 
-        import_data: moment(this.dateGiphy), 
-        title: this.titleGiphy, 
-        url: this.urlGiphy, 
-      }));
+    saveChanges: function () {
+      let giphy = {
+        url: this.urlGiphy,
+        title: this.titleGiphy,
+        import_data: this.dateGiphy,
+        id: this.idGiphy,
+      };
+      console.log(giphy);
+      this.$store.dispatch('editGiphy', giphy);
       this.edit = false;
     },
   },
