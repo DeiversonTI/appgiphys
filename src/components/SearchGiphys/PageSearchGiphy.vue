@@ -65,6 +65,7 @@ export default {
     valueToSearch(newValue, oldValue){
       if(newValue != oldValue){
         this.$store.commit('resetList');
+        this.$store.commit('resetOffSet');
       }
     }
   }

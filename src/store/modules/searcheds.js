@@ -11,6 +11,9 @@ export default {
         key: 'KuOjfeKF3VQCVK9PIsI33rzivmUlKkOF',
 	},
 	mutations: {
+        resetOffSet(state){
+            state.offset = 0;
+        },
         updateOffSet(state){
             state.offset += state.limit
         },
