@@ -6,7 +6,7 @@ export default {
 
         valueToSearch: "",
 
-        limit: 9,
+        limit: 6,
         offset: 0,
         key: 'KuOjfeKF3VQCVK9PIsI33rzivmUlKkOF',
 	},

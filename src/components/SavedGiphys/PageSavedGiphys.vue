@@ -28,9 +28,6 @@ export default {
       list: (state) => state.saveds.list,
     }),
   },
-  created(){
-    //console.log(this.list);
-  }
 };
 </script>
 

@@ -33,7 +33,6 @@
 
 <script>
 import moment from "moment";
-import { mapActions } from 'vuex';
 
 export default {
   name: "GiphyCard",
@@ -44,31 +43,40 @@ export default {
     };
   },
   methods: {
-    ...mapActions(['saveGiphy', 'removeGiphy']),
-    async giphySaved(){
+    async giphySaved() {
       if (this.saved) {
         this.saved = false;
-				this.removeGiphy();
+        this.removeGiphy();
       } else {
         this.saved = true;
         this.addGiphy();
       }
     },
-    async addGiphy(){
+    async addGiphy() {
       let props = {
         url: this.urlGiphy,
         title: this.title,
         import_date: this.import_date,
         id: this.id,
       };
-      await this.$store.dispatch('saveGiphy', props);
+      await this.$store.dispatch("saveGiphy", props);
     },
-    async removeGiphy(){
-      await this.$store.dispatch('removeGiphy', this.id);
+    async removeGiphy() {
+      await this.$store.dispatch("removeGiphy", this.id);
     },
-    moment: function(data) {
+    isSaved() {
+      this.$store.state.saveds.list.forEach((el) => {
+        if (this.id === el.id) {
+          this.saved = true;
+        }
+      });
+    },
+    moment: function (data) {
       return moment(data).format("DD/MM/YYYY");
     },
+  },
+  created() {
+    this.isSaved();
   },
 };
 </script>

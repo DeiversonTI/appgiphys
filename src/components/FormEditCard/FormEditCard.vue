@@ -99,7 +99,6 @@ export default {
         import_data: this.dateGiphy,
         id: this.idGiphy,
       };
-      console.log(giphy);
       this.$store.dispatch('editGiphy', giphy);
       this.edit = false;
     },

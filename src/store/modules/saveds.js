@@ -38,7 +38,6 @@ export default {
 					newList.push(el);
 				}
 			})
-			console.log(newList);
 			commit('editGiphy', newList);	
 		},
 	},
