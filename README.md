@@ -46,7 +46,7 @@ onde a porta 8086 foi definida como padrão para este projeto.
 
 Assim que entramos no app usando a url que foi passada acima, estaremos na seguinte tela:
 
-![Foto da tela de pesquisa](https://github.com/felipebarreto148/appgiphys/pictures/tela_inicio.png)
+![Foto da tela de pesquisa](https://github.com/felipebarreto148/appgiphys/blob/master/pictures/tela_inicio.PNG)
 
 Para pesquisarmos um gif, basta inserir o nome do que queremos procurar no campo e apertar o enter que os gifs serão retornados, como no exemplo abaixo:
 
