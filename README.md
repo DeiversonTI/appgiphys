@@ -46,7 +46,7 @@ onde a porta 8086 foi definida como padrão para este projeto.
 
 Assim que entramos no app usando a url que foi passada acima, estaremos na seguinte tela:
 
-![Procurar%20Gifs%2087cb089cdcf04c3a807eab61447bb4ca/Untitled.png](Procurar%20Gifs%2087cb089cdcf04c3a807eab61447bb4ca/Untitled.png)
+![Foto da tela de pesquisa](https://github.com/felipebarreto148/appgiphys/pictures/tela_inicio.png)
 
 Para pesquisarmos um gif, basta inserir o nome do que queremos procurar no campo e apertar o enter que os gifs serão retornados, como no exemplo abaixo:
 
@@ -60,7 +60,7 @@ Os gifs que foram curtidos, poderão ser encontrados na aba "Giphys Saved"
 
 ![Procurar%20Gifs%2087cb089cdcf04c3a807eab61447bb4ca/giphysSaved.gif](Procurar%20Gifs%2087cb089cdcf04c3a807eab61447bb4ca/giphysSaved.gif)
 
-Nesta mesma aba, é possível também, remover um gif que havia sido salvo anteriormente, para isso, bata cliclar no botão de "like", você irá perceber que nessa aba, ao passar o mouse em cima do botão, aparecerá "Dislike", como mostra no exemplo a seguir:
+Nesta mesma aba, é possível também, remover um gif que havia sido salvo anteriormente, para isso, basta clicar no botão de "like", você perceberá que nessa aba, ao passar o mouse em cima do botão, aparecerá "Dislike", como mostra no exemplo a seguir:
 
 ![Procurar%20Gifs%2087cb089cdcf04c3a807eab61447bb4ca/disliked.gif](Procurar%20Gifs%2087cb089cdcf04c3a807eab61447bb4ca/disliked.gif)
 
