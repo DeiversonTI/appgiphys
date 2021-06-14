@@ -50,26 +50,24 @@ Assim que entramos no app usando a url que foi passada acima, estaremos na segui
 
 Para pesquisarmos um gif, basta inserir o nome do que queremos procurar no campo e apertar o enter que os gifs serão retornados, como no exemplo abaixo:
 
-![Pesquisando por um giphy](https://github.com/felipebarreto148/appgiphys/blob/master/pictures/search.mp4)
+![Pesquisando por um giphy](https://github.com/felipebarreto148/appgiphys/blob/master/pictures/pesquisa.PNG)
 
 É possível também, salvar gifs para visualizar mais tarde, para isso, basta clicar no botão "Like", presente em todos os gifs.
 
-![Procurar%20Gifs%2087cb089cdcf04c3a807eab61447bb4ca/likedgif.gif](Procurar%20Gifs%2087cb089cdcf04c3a807eab61447bb4ca/likedgif.gif)
+![Giphys Curtidos](https://github.com/felipebarreto148/appgiphys/blob/master/pictures/Curtidos.PNG)
 
-Os gifs que foram curtidos, poderão ser encontrados na aba "Giphys Saved"
-
-![Procurar%20Gifs%2087cb089cdcf04c3a807eab61447bb4ca/giphysSaved.gif](Procurar%20Gifs%2087cb089cdcf04c3a807eab61447bb4ca/giphysSaved.gif)
+Os gifs que foram curtidos, poderão ser encontrados na aba "Giphys Saved".
 
 Nesta mesma aba, é possível também, remover um gif que havia sido salvo anteriormente, para isso, basta clicar no botão de "like", você perceberá que nessa aba, ao passar o mouse em cima do botão, aparecerá "Dislike", como mostra no exemplo a seguir:
 
-![Procurar%20Gifs%2087cb089cdcf04c3a807eab61447bb4ca/disliked.gif](Procurar%20Gifs%2087cb089cdcf04c3a807eab61447bb4ca/disliked.gif)
+![Opção de dislike em um giphy](https://github.com/felipebarreto148/appgiphys/blob/master/pictures/dislike.PNG)
 
 Também é possível alterar as informações de um gif salvo, como título e data de atualização, que por padrão, são as informações inseridas no ato da publicação do gif, para editar um gif, basta clicar no botão "Edit", que abrirá os campos para realizar a alteração das informações. Por exemplo:
 
-![Procurar%20Gifs%2087cb089cdcf04c3a807eab61447bb4ca/clique_edit.gif](Procurar%20Gifs%2087cb089cdcf04c3a807eab61447bb4ca/clique_edit.gif)
+![Formulário que aparece ao clicar no botão de editar](https://github.com/felipebarreto148/appgiphys/blob/master/pictures/Alterar_informacoes.PNG)
 
 Como podemos ver, podemos alterar o título e a data, como no exemplo seguinte: 
 
-![Procurar%20Gifs%2087cb089cdcf04c3a807eab61447bb4ca/edit.gif](Procurar%20Gifs%2087cb089cdcf04c3a807eab61447bb4ca/edit.gif)
+![Informações do giphy editadas.](https://github.com/felipebarreto148/appgiphys/blob/master/pictures/Alterado.PNG)
 
 Após editarmos as informações, basta clicar no botão  de confirmar para salvar e realizar as alterações no gif.
